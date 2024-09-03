@@ -1,0 +1,255 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://cdn.tiny.cloud/1/dnrbo5jub3ln0e23awgulturfk1e6nv5h6s4eh16ob30c6jn/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href="~/site/css/IndexStyle.css" rel="stylesheet" />
+    <link href="~/site/css/NavMenuStyle.css" rel="stylesheet" />
+    <link href="~/site/css/BackTop.css" rel="stylesheet" />
+    <link rel="icon" href="~/Img/favicon.svg" />
+    <title title="國家運動科學中心">國家運動科學中心</title>
+    <script src="~/Scripts/jquery-3.7.0.js"></script>
+    <script async defer="defer" crossorigin="anonymous" src="/Kit/loader.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Scripts/4.5.2.bootstrap.min.js"></script>  @*輪播圖要使用*@
+    <script src="~/fontawesome/js/all.js"></script>
+    @*<link href="/site/css/chunk-vendors.25d98017.css" rel="stylesheet">*@
+    @*<link href="/site/css/app.5338f982.css" rel="stylesheet">*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/fontawesome/css/all.css" rel="stylesheet" />
+</head>
+<body>
+    <noscript>您的瀏覽器不支援JavaScript功能，若本網站功能無法正常使用，請開啟瀏覽器JavaScript狀態</noscript>
+    <header>
+        <div class="container-fluid bg-light">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-3 text-center">
+                    <a href="https://www.tiss.org.tw" class="mainLogo">
+                        <img src="/site/img/logo.1fec0909.svg" alt="TISS logo" role="img" class="logo-img">
+                    </a>
+                </div>
+                <div class="col-12 col-lg-9 text-center text-lg-end">
+                    <nav aria-label="多語系按鈕" class="d-inline-block">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <button type="button" class="btn btn-outline-secondary FontSizeBtn" data-size="small" title="小">小</button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button type="button" class="btn btn-outline-secondary FontSizeBtn active" data-size="medium" title="中">中</button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button type="button" class="btn btn-outline-secondary FontSizeBtn" data-size="large" title="大">大</button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button type="button" class="btn btn-outline-secondary LangBtn" aria-label="更改語言" onclick="location.href='@Url.Action("UpdateLan", "Tiss", new { lang = "en-US" })'">
+                                    <svg class="svg-inline--fa fa-globe" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="globe" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor" d="..."></path>
+                                    </svg>
+                                    <span>En</span>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button onclick="location.href='/Tiss/Login'" class="btn btn-outline-secondary FontSizeBtn" title="網頁管理者">網頁管理者</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-primary text-white">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <!-- 最新消息 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="/Tiss/announcement" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    最新消息
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                    <li><a class="dropdown-item" href="/Tiss/announcement">中心公告</a></li>
+                                </ul>
+                            </li>
+                            <!-- 中心介紹 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="/Tiss/announcement" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    中心介紹
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                    <li><a class="dropdown-item" href="/Tiss/Objectives">使命、願景</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/mission">中心任務</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/Organization">組織概況</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/BOD">第1屆 董監事</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/CEO">執行長</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/Units">單位介紹</a></li>
+                                </ul>
+                            </li>
+                            <!-- 影音專區 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="/Tiss/video" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    影音專區
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                    <li><a class="dropdown-item" href="/Tiss/video">影音專區</a></li>
+                                </ul>
+                            </li>
+                            <!-- 科普專欄 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="/Tiss/research" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    科普專欄
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                                    <li><a class="dropdown-item" href="/Tiss/sportMedicine">運動醫學</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/sportTech">運動科技</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/sportScience">運動科學</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/sportsPhysiology">運動生理</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/sportsPsychology">運動心理</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/physicalTraining">體能訓練</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/sportsNutrition">運動營養</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/childrenScience">兒少科普</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/SciencePosterDownLoad">科普海報下載專區</a></li>
+                                </ul>
+                            </li>
+                            <!-- 公開資訊 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="/Tiss/public_info" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    公開資訊
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
+                                    <li><a class="dropdown-item" href="/Tiss/regulation">法規</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/procedure">辦法及要點</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/plan">計畫</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/budget">預算與決算</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/download">下載專區</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/GenderEquality">性別平等專區</a></li>
+                                    <li><a class="dropdown-item" href="/Tiss/other">其他</a></li>
+                                </ul>
+                            </li>
+                            <!-- 贊助專區 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown6" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    贊助專區
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown6">
+                                    <li><a class="dropdown-item" href="/Tiss/sponsor">贊助專區</a></li>
+                                </ul>
+                            </li>
+                            <!-- 服務信箱 -->
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="mailto:service@tiss.org.tw">服務信箱</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="footer bg-light pt-4">
+        <div class="container">
+            <div class="row">
+                <!-- 左側聯絡資訊 -->
+                <div class="col-12 col-md-4">
+                    <h5>聯絡資訊</h5>
+                    <ul class="list-unstyled">
+                        <li>地址: 813高雄市左營區軍校路179號</li>
+                        <li>電話: 07-586-1193</li>
+                        <li>服務時間: 週一至週五 08:30~17:30</li>
+                        <li>
+                            <a href="https://www.tiss.org.tw" class="text-decoration-none">網站地圖</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 中間導航連結 -->
+                <div class="col-12 col-md-4">
+                    <h5>相關連結</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/Tiss/announcement" class="text-decoration-none">最新消息</a></li>
+                        <li><a href="/Tiss/about" class="text-decoration-none">中心介紹</a></li>
+                        <li><a href="/Tiss/video" class="text-decoration-none">影音專區</a></li>
+                        <li><a href="/Tiss/research" class="text-decoration-none">科普專欄</a></li>
+                        <li><a href="/Tiss/public_info" class="text-decoration-none">公開資訊</a></li>
+                        <li><a href="/Tiss/sponsor" class="text-decoration-none">贊助專區</a></li>
+                        <li><a href="mailto:service@tiss.org.tw" class="text-decoration-none">服務信箱</a></li>
+                    </ul>
+                </div>
+                <!-- 右側社交媒體 -->
+                <div class="col-12 col-md-4">
+                    <h5>社交媒體</h5>
+                    <a href="https://www.facebook.com/tiss.org.tw" target="_blank" class="text-decoration-none">
+                        <i class="fab fa-facebook-square"></i> Facebook
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="text-muted">&copy; 2024 國家運動科學中心. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div data-v-339da53a="" class="el-backtop GoTop" style="right: 40px; bottom: 40px;">
+        <i class="fa-solid fa-angle-up fa-xl" style="color: #fcfcfc;" title="回最上方"></i>
+    </div>
+    <script>
+        //網頁字體大小控制function
+        document.querySelectorAll('.FontSizeBtn').forEach(button => {
+            button.addEventListener('click', function () {
+                const size = this.getAttribute('data-size');
+                changeFontSize(size, this);
+            });
+        });
+
+        function changeFontSize(size, element) {
+            const htmlElement = document.querySelector('html');
+            if (size === 'small') {
+                htmlElement.style.fontSize = '14px';
+            } else if (size === 'medium') {
+                htmlElement.style.fontSize = '16px';
+            } else if (size === 'large') {
+                htmlElement.style.fontSize = '18px';
+            }
+
+            // 移除所有按鈕的 active 樣式
+            const buttons = document.querySelectorAll('.FontSizeBtn');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // 為當前按鈕添加 active 樣式
+            element.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var backTopButton = document.querySelector('.el-backtop');
+
+            // 顯示或隱藏按鈕
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 1500) { // 滾動超過200px時顯示按鈕
+                    backTopButton.classList.add('show');
+                } else {
+                    backTopButton.classList.remove('show');
+                }
+            });
+
+            // 點擊按鈕時平滑滾動到頁面頂部
+            backTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

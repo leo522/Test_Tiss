@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Test_Tiss.Models.ArticleContentModel>
+@{
+    Layout = "~/Views/Shared/_TissMaster.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/site/css/MenuLinkStyle.css" rel="stylesheet" />
+    <link href="~/site/css/ViewArticle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid px-0 mt-header">
+        <div class="BasePageLayout">
+            <div class="BasePageBanner">
+                <div class="Mask"></div>
+                <img class="PageBannerItemBg img-fluid" src="/site/img/video_banner.1e11babb.jpg" alt="影音專區背景圖片">
+                <!-- <img class="PageBannerItemBg img-fluid d-block d-lg-none" src="/site/img/banner_video.c7a8c59f.jpg" alt=""> -->
+                <div class="container text-center">
+                    <div class="Title">
+                        <h1 class="BannerTitle" title="Video">Video</h1>
+                        <h2 class="BannerSubTitle">
+                            <img class="icon" src="/site/img/title_icon_white.5e98ec4e.svg" alt="影音專區圖標" title="影音專區">影音專區
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <aside class="col-lg-3">
+                    <div class="BaseBreadcrumb d-block d-lg-none">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="/Tiss/Home" title="首頁">首頁</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="#" title="最新消息">最新消息</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">影音專區</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="Title" title="影音專區">影音專區</div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a class="MenuLink" href="/Tiss/video" title="全部文章">全部文章</a></li>
+                            <li class="list-group-item"><a class="MenuLink" href="/Tiss/achievement" title="中心成果">中心成果</a></li>
+                            <li class="list-group-item"><a class="MenuLink" href="/Tiss/news" title="新聞影音">新聞影音</a></li>
+                            <li class="list-group-item"><a class="MenuLink" href="/Tiss/activityRecord" title="活動記錄">活動記錄</a></li>
+                            @{
+                                if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+                                {
+                                    <li class="list-group-item"><a class="MenuLink text-warning" href="/Tiss/ArticleCreate" title="新增文章">新增文章</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </aside>
+                <main class="col-lg-9 bg-white">
+                    <div class="MainContainer">
+                        <div class="BaseBreadcrumb d-none d-lg-block">
+                            <div class="container">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="/Tiss/Home" title="首頁">首頁</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="#" title="最新消息">最新消息</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">影音專區</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="MainContainer">
+                        <div class="NewsVideoList">
+                            <div class="container">
+                                <div class="row">
+                                    @foreach (var article in Model)
+                                    {
+                                        <div class="col-md-4 mb-4">
+                                            <a href="@Url.Action("ViewArticle", "Tiss", new { encryptedUrl = article.EncryptedUrl })" class="">
+                                                <div class="card NewsItemBox">
+                                                    <div class="card-img-top NewsItemImg">
+                                                        @if (article.ImageContent != null)
+                                                        {
+                                                            string base64Image = Convert.ToBase64String(article.ImageContent);
+                                                            <img src="data:image/png;base64,@base64Image" class="img-fluid" alt="圖片" />
+                                                        }
+                                                        <div class="tag badge badge-secondary">@article.ContentType</div>
+                                                        <div class="Mask" title="閱讀更多">閱讀更多</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title el-text is-line-clamp NewsItemTitle">@article.Title</h5>
+                                                        <p class="card-text el-text is-line-clamp NewsItemContent">@article.BodyContent</p>
+                                                    </div>
+                                                    <div class="card-footer text-muted">
+                                                        <span class="el-tag el-tag--plain is-round badge badge-pill badge-info">@article.Hashtags</span>
+                                                        <span class="date-tag float-right">@article.FormattedCreateDate</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Pagination">
+                            <div class="container">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                            <a class="page-link" href="@Url.Action("news", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                        {
+                                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                <a class="page-link" href="@Url.Action("news", "Tiss", new { page = i })">@i</a>
+                                            </li>
+                                        }
+                                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                            <a class="page-link" href="@Url.Action("news", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+   //登出按鈕顯示功能
+$(document).ready(function () {
+    var isLoggedIn = '@Session["LoggedIn"]' == 'True';
+
+if (isLoggedIn) {
+    $('#logoutBtn').show(); //顯示登出按鈕
+} else {
+    $('#loginBtn').show(); //顯示登入按鈕
+    }
+        loadContent(); //加載已儲存的內容
+});
+        //顯示當前選擇的子項目
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentUrl = window.location.pathname;
+            var menuLinks = document.querySelectorAll('.MenuLink');
+
+            menuLinks.forEach(function (link) {
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

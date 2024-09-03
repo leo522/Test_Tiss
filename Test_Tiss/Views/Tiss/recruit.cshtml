@@ -1,0 +1,184 @@
+﻿@model IEnumerable<Test_Tiss.Models.ArticleContentModel>
+@{
+    Layout = "~/Views/Shared/_TissMaster.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/site/css/MenuLinkStyle.css" rel="stylesheet" />
+    <link href="~/site/css/ViewArticle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid px-0 mt-header">
+        <div class="BasePageLayout">
+            <div class="BasePageBanner">
+                <div class="Mask"></div>
+                <img class="PageBannerItemBg d-none d-lg-block w-100" src="/site/img/news_banner.856d4a80.jpg" alt="中心公告封面圖片" title="中心公告封面圖片">
+                <div class="container text-center">
+                    <div class="Title">
+                        <h1 class="BannerTitle" title="Announcements">Announcements</h1>
+                        <h2 class="BannerSubTitle">
+                            <img class="icon" src="/site/img/title_icon_white.5e98ec4e.svg" alt="中心公告" title="中心公告">中心公告
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <section class="row no-gutters">
+                <aside class="col-lg-3">
+                    <div class="BaseBreadcrumb d-block d-lg-none">
+                        <div class="container">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="/Tiss/Home" title="首頁">首頁</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">中心公告</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="Title" title="中心公告">中心公告</div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a class="MenuLink" href="/Tiss/announcement" title="全部文章">全部文章</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="MenuLink" href="/Tiss/press" title="新聞發佈">新聞發佈</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="MenuLink" href="/Tiss/institute" title="中心訊息">中心訊息</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="MenuLink" href="/Tiss/recruit" title="徵才招募">徵才招募</a>
+                            </li>
+                            @if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+                            {
+                                <li class="list-group-item">
+                                    <a class="MenuLink text-orange" href="/Tiss/ArticleCreate" title="新增文章">新增文章</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </aside>
+                <main class="col-lg-9 bg-white">
+                    <div class="MainContainer">
+                        <div class="BaseBreadcrumb d-none d-lg-block">
+                            <div class="container">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="/Tiss/Home" title="首頁">首頁</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">中心公告</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="MainContainer">
+                        <div class="AnnouncementList">
+                            <div class="container">
+                                <div class="row">
+                                    @foreach (var article in Model)
+                                    {
+                                        <div class="col-md-4 mb-4">
+                                            <a href="@Url.Action("ViewArticle", "Tiss", new { encryptedUrl = article.EncryptedUrl })" class="">
+                                                <div class="NewsItemBox">
+                                                    <div class="NewsItemImg position-relative">
+                                                        @if (article.ImageContent != null)
+                                                        {
+                                                            string base64Image = Convert.ToBase64String(article.ImageContent);
+                                                            <img src="data:image/png;base64,@base64Image" alt="圖片" class="img-fluid">
+                                                        }
+                                                        <div class="tag position-absolute">@article.ContentType</div>
+                                                        <div class="Mask position-absolute" title="閱讀更多">閱讀更多</div>
+                                                    </div>
+                                                    <span class="el-text is-line-clamp NewsItemTitle">@article.Title</span>
+                                                    <div class="NewsItemContent">
+                                                        <span class="el-text is-line-clamp">@article.BodyContent</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tag-date-container d-flex justify-content-between align-items-center mt-2">
+                                                    <div class="el-tag el-tag--plain is-round">
+                                                        <span class="el-tag__content">@article.Hashtags</span>
+                                                    </div>
+                                                    <div class="date-tag">@article.FormattedCreateDate</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Pagination">
+                            <div class="container">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                            <a class="page-link" href="@Url.Action("recruit", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                        {
+                                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                <a class="page-link" href="@Url.Action("recruit", "Tiss", new { page = i })">@i</a>
+                                            </li>
+                                        }
+                                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                            <a class="page-link" href="@Url.Action("recruit", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </section>
+        </div>
+    </div>
+
+
+    <script>
+    //登出按鈕顯示功能
+$(document).ready(function () {
+    var isLoggedIn = '@Session["LoggedIn"]' == 'True';
+
+if (isLoggedIn) {
+    $('#logoutBtn').show(); //顯示登出按鈕
+} else {
+    $('#loginBtn').show(); //顯示登入按鈕
+    }
+        loadContent(); //加載已儲存的內容
+});
+        //登出按鈕顯示功能
+
+        //顯示當前選擇的子項目
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentUrl = window.location.pathname;
+            var menuLinks = document.querySelectorAll('.MenuLink');
+
+            menuLinks.forEach(function (link) {
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentUrl = window.location.pathname;
+            var menuLinks = document.querySelectorAll('.MenuLink');
+
+            menuLinks.forEach(function (link) {
+
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

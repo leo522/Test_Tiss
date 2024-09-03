@@ -1,0 +1,194 @@
+﻿@model IEnumerable<Test_Tiss.Models.ProcedureDocumentModel>
+@{
+    Layout = "~/Views/Shared/_TissMaster.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/site/css/MenuLinkStyle.css" rel="stylesheet" />
+    <link href="~/site/css/ViewArticle.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container-fluid px-0 mt-header">
+        <div class="BasePageLayout">
+            <!-- Banner Section -->
+            <div class="BasePageBanner position-relative">
+                <div class="Mask position-absolute w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
+                <img class="img-fluid d-none d-lg-block w-100" src="/site/img/banner_public.db4e1f02.jpg" alt="公開資訊封面圖片">
+                <div class="container position-absolute top-50 start-50 translate-middle text-center text-white">
+                    <h1 class="display-4">Public Information</h1>
+                    <p class="lead">
+                        <img src="/site/img/title_icon_white.5e98ec4e.svg" alt="公開資訊" title="公開資訊">
+                        公開資訊
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main Content Section -->
+            <section class="row">
+                <!-- Sidebar Navigation -->
+                <aside class="col-lg-3 col-md-4 col-12 bg-light p-4">
+                    <!-- Breadcrumb for smaller screens -->
+                    <div class="d-lg-none mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">公開資訊</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <!-- Sidebar Menu -->
+                    <h5 class="mb-3">公開資訊</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2">
+                            <a class="nav-link active" href="/Tiss/regulation">法規</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="/Tiss/procedure">辦法及要點</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="/Tiss/plan">計畫</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="/Tiss/budget">預算與決算</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="/Tiss/download">下載專區</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="/Tiss/GenderEquality">性別平等專區</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link" href="/Tiss/other">其他</a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Main Article Content -->
+                <main class="col-lg-9 col-md-8 col-12 bg-white p-4">
+                    <!-- Breadcrumb for larger screens -->
+                    <div class="d-none d-lg-block mb-4">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">公開資訊</li>
+                                <li class="breadcrumb-item active" aria-current="page">辦法及要點</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <!-- Information List -->
+                    <div class="PublicInfo">
+                        <span id="Regulation" class="anchor"></span>
+                        <span id="Methods" class="anchor"></span>
+                        <span id="Plan" class="anchor"></span>
+                        <span id="Budget" class="anchor"></span>
+                        <span id="Download" class="anchor"></span>
+                        <span id="Purchase" class="anchor"></span>
+                        <span id="Other" class="anchor"></span>
+
+                        <div class="content">
+                            <h2 class="mb-4">辦法及要點 <small class="text-muted">Procedure</small></h2>
+
+                            <div class="infoList">
+                                <div class="d-none d-lg-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 60%;">名稱</th>
+                                                    <th style="width: 20%;">發布日期</th>
+                                                    <th style="width: 20%;">附件</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var file in Model)
+                                                {
+                                                    <tr>
+                                                        <td title="@file.DocumentName">@file.DocumentName.Substring(0, file.DocumentName.LastIndexOf('.'))</td>
+                                                        <td>@file.UploadTime.ToString("yyyy/MM/dd")</td>
+                                                        <td>
+                                                            <a href="~/storage/media/attachments/@file.DocumentName" target="_blank" class="btn btn-outline-primary btn-sm" title="@file.DocumentName">
+                                                                @file.DocumentType
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- Pagination -->
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                                <a class="page-link" href="@Url.Action("procedure", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                            {
+                                                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                    <a class="page-link" href="@Url.Action("procedure", "Tiss", new { page = i })">@i</a>
+                                                </li>
+                                            }
+                                            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                                <a class="page-link" href="@Url.Action("procedure", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+
+                                    @if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+                                    {
+                                        <div class="mt-4">
+                                            @using (Html.BeginForm("UploadProcedureDocument", "Tiss", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                                <div class="mb-3">
+                                                    <label for="file" class="form-label">選擇檔案</label>
+                                                    <input type="file" name="file" class="form-control">
+                                                </div>
+                                                <button type="submit" class="btn btn-outline-success">上傳檔案</button>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </section>
+        </div>
+    </div>
+
+    <script>
+$(document).ready(function () {
+    var isLoggedIn = '@Session["LoggedIn"]' == 'True';
+
+if (isLoggedIn) {
+    $('#logoutBtn').show(); //顯示登出按鈕
+} else {
+    $('#loginBtn').show(); //顯示登入按鈕
+    }
+        loadContent(); //加載已儲存的內容
+});
+
+        //顯示當前被選擇的子目錄
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentUrl = window.location.pathname;
+            var menuLinks = document.querySelectorAll('.MenuLink');
+
+            menuLinks.forEach(function (link) {
+
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+﻿@{
+    Layout = "~/Views/Shared/_TissMaster.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/site/css/ViewArticle.css" rel="stylesheet" />
+    <link href="~/site/css/MenuLinkStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layout">
+        <div class="container-fluid px-0 mt-header">
+            <div class="BasePageLayout">
+                <!-- Banner Section -->
+                <div class="BasePageBanner position-relative">
+                    <div class="Mask position-absolute w-100 h-100"></div>
+                    <img class="PageBannerItemBg w-100" src="/site/img/about_banner_1.cb027849.jpg" alt="TISS Center Overview Banner Image">
+                    <div class="container text-white py-5 text-center">
+                        <h1 class="BannerTitle display-4" title="About TISS">About TISS</h1>
+                        <p class="BannerSubTitle lead">
+                            <img class="icon me-2" src="/site/img/title_icon_white.5e98ec4e.svg" alt="Center Introduction Icon">中心介紹
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Main Content Section -->
+                <section class="el-container">
+                    <div class="row">
+                        <!-- Sidebar Navigation -->
+                        <aside class="el-aside col-lg-3 mb-4">
+                            <!-- Breadcrumb for Small Screens -->
+                            <nav class="BaseBreadcrumb d-block d-lg-none mb-4">
+                                <div class="container">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">中心介紹</li>
+                                    </ol>
+                                </div>
+                            </nav>
+
+                            <!-- Sidebar Menu -->
+                            <div class="content">
+                                <h4 class="Title mb-4" title="中心介紹">中心介紹</h4>
+                                <ul class="Menu list-group">
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/Objectives" title="使命、願景">使命、願景</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/mission" title="中心任務">中心任務</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/Organization" title="組織概況">組織概況</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/BOD" title="第1屆 董監事">第1屆 董監事</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/CEO" title="執行長">執行長</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/Units" title="單位介紹">單位介紹</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+
+                        <!-- Main Content Area -->
+                        <main class="el-main col-lg-9 bg-light">
+                            <div class="MainContainer">
+                                <!-- Breadcrumb for Large Screens -->
+                                <nav class="BaseBreadcrumb d-none d-lg-block mb-4">
+                                    <div class="container">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">中心介紹</li>
+                                        </ol>
+                                    </div>
+                                </nav>
+
+                                <!-- Objectives Section -->
+                                <section class="Objectives mb-5">
+                                    <h2 class="SubTitle">使命、願景 <small class="text-muted">Objectives</small></h2>
+                                    <div class="contentBox">
+                                        <div class="content">
+                                            <div class="Intro" id="intro" contenteditable="true" title="辦理國家優秀運動選手培訓、參賽所需之運動科學支援服務、健康管理及醫療照護">辦理國家優秀運動選手培訓、參賽所需之運動科學支援服務、健康管理及醫療照護</div>
+                                            <div class="SubIntro" id="subIntro" contenteditable="true" title="TO PROMOTE OUR RESEARCH ACHIEVEMENTS IN SPORTS SCIENCE AND TO ENHANCE OUR INTERNATIONAL ATHLETIC COMPETITIVENESS">TO PROMOTE OUR RESEARCH ACHIEVEMENTS IN SPORTS SCIENCE AND TO ENHANCE OUR INTERNATIONAL ATHLETIC COMPETITIVENESS</div>
+                                        </div>
+                                        <img class="ObjectivesImg w-100 mt-4" id="mainImage" alt="TISS Objectives Image" title="中心使命願景圖片">
+                                    </div>
+                                    <div class="btn-container mt-4">
+                                        <input type="file" id="uploadImageInput" style="display:none;" accept="image/*">
+                                        <button class="btn btn-outline-primary" onclick="changeImg()">新增圖片</button>
+                                        <button class="btn btn-outline-success" onclick="saveContent()">儲存</button>
+                                    </div>
+                                </section>
+
+                                <!-- Mission Section -->
+                                <section class="Mission mb-5">
+                                    <h2 class="SubTitle">中心任務 <small class="text-muted">Mission</small></h2>
+                                    <div class="el-divider el-divider--horizontal" role="separator"></div>
+                                    <ul class="MissionList list-unstyled">
+                                        <li class="MissionItem d-flex align-items-start mb-3">
+                                            <span class="MissionItemNumber me-3" title="01">01</span>
+                                            <span class="MissionItemContent">辦理國家優秀運動選手培訓、參賽所需之運動科學支援服務、健康管理及醫療照護</span>
+                                        </li>
+                                        <!-- Additional Mission Items -->
+                                    </ul>
+                                </section>
+
+                                <!-- Organization Section -->
+                                <section class="Organization mb-5">
+                                    <h2 class="SubTitle">組織概況 <small class="text-muted">Organization Structure</small></h2>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12 mb-4">
+                                                <a href="#BOD" class="OrganizationItem d-block text-decoration-none">
+                                                    <h3 class="ItemTitle">董事會</h3>
+                                                    <p class="ItemSubTitle">Board of Directors</p>
+                                                </a>
+                                            </div>
+                                            <!-- Additional Organization Items -->
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </main>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    $(document).ready(function () {
+        // 登出按鈕顯示功能
+        var isLoggedIn = '@Session["LoggedIn"]' == 'True';
+
+        if (isLoggedIn) {
+            $('#logoutBtn').show(); // 顯示登出按鈕
+        } else {
+            $('#loginBtn').show(); // 顯示登入按鈕
+        }
+
+        loadContent(); // 加載已儲存的內容
+
+        // 當前 URL 檢查並標記菜單項目
+        var currentUrl = window.location.pathname;
+        var menuLinks = document.querySelectorAll('.MenuLink');
+
+        menuLinks.forEach(function (link) {
+            if (link.getAttribute('href') === currentUrl) {
+                link.classList.add('active');
+            }
+        });
+
+        // 增加圖片功能
+        document.getElementById('uploadImageInput').addEventListener('change', function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    document.getElementById('mainImage').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+
+    // 載入已儲存的內容
+    function loadContent() {
+        $.ajax({
+            url: 'missionGetContent',
+            method: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    document.getElementById('intro').innerText = response.textContent;
+                    document.getElementById('mainImage').src = response.imagePath;
+                } else {
+                    console.error('載入失敗: ' + response.error);
+                }
+            },
+            error: function (err) {
+                console.error('載入失敗', err);
+            }
+        });
+    }
+
+    // 圖片及文字存檔功能
+    function saveContent() {
+        var textContent = document.getElementById('intro').innerText;
+        var imageSrc = document.getElementById('mainImage').src;
+
+        $.ajax({
+            url: 'missionSaveContent',
+            method: 'POST',
+            data: {
+                TextContent: textContent,
+                ImageSrc: imageSrc
+            },
+            success: function (response) {
+                if (response.success) {
+                    document.getElementById('mainImage').src = response.imagePath;
+                    alert('內容已儲存');
+                } else {
+                    alert('儲存失敗: ' + response.error);
+                }
+            },
+            error: function (err) {
+                console.error('儲存失敗', err);
+            }
+        });
+    }
+
+    // 增加圖片功能
+    function changeImg() {
+        document.getElementById('uploadImageInput').click();
+    }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,192 @@
+﻿@model IEnumerable<Test_Tiss.Models.BudgetDocumentModel>
+@{
+    Layout = "~/Views/Shared/_TissMaster.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/site/css/MenuLinkStyle.css" rel="stylesheet" />
+    <link href="~/site/css/ViewArticle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layout">
+        <div class="container-fluid px-0 mt-header">
+            <div class="BasePageLayout">
+                <!-- Page Banner -->
+                <div class="BasePageBanner position-relative">
+                    <div class="Mask position-absolute w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
+                    <img class="PageBannerItemBg img-fluid d-none d-lg-block w-100" src="/site/img/banner_public.db4e1f02.jpg" alt="中心介紹封面圖片">
+                    <!-- Uncomment for smaller screens if needed -->
+                    <!-- <img class="PageBannerItemBg d-block d-lg-none w-100" src="/site/img/banner_public_m.8febbec3.jpg" alt="中心介紹封面圖片"> -->
+                    <div class="container text-white py-5 text-center">
+                        <h1 class="BannerTitle display-4" title="Public Information">Public Information</h1>
+                        <p class="BannerSubTitle lead">
+                            <img class="icon me-2" src="/site/img/title_icon_white.5e98ec4e.svg" alt="公開資訊" title="公開資訊">
+                            公開資訊
+                        </p>
+                    </div>
+                </div>
+
+                <section class="el-container">
+                    <div class="row">
+                        <!-- Sidebar -->
+                        <aside class="el-aside col-lg-3 mb-4">
+                            <!-- Breadcrumb for small screens -->
+                            <nav class="BaseBreadcrumb d-block d-lg-none mb-4">
+                                <div class="container">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                        <li class="breadcrumb-item"><a href="#">公開資訊</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">預算及決算</li>
+                                    </ol>
+                                </div>
+                            </nav>
+
+                            <!-- Sidebar Menu -->
+                            <div class="content">
+                                <h4 class="Title mb-4" title="公開資訊">公開資訊</h4>
+                                <ul class="Menu list-group">
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/regulation" title="法規">法規</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/procedure" title="辦法及要點">辦法及要點</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/plan" title="計畫">計畫</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/budget" title="預算與決算">預算與決算</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/download" title="下載專區">下載專區</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/GenderEquality" title="性別平等專區">性別平等專區</a></li>
+                                    <li class="list-group-item"><a class="MenuLink text-decoration-none" href="/Tiss/other" title="其他">其他</a></li>
+                                </ul>
+                            </div>
+                        </aside>
+
+                        <!-- Main Content -->
+                        <main class="el-main col-lg-9 bg-light">
+                            <div class="MainContainer">
+                                <!-- Breadcrumb for large screens -->
+                                <nav class="BaseBreadcrumb d-none d-lg-block mb-4">
+                                    <div class="container">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                            <li class="breadcrumb-item"><a href="#">公開資訊</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">預算及決算</li>
+                                        </ol>
+                                    </div>
+                                </nav>
+
+                                <!-- Budget Information Section -->
+                                <div class="PublicInfo">
+                                    <div class="content mb-4">
+                                        <h3 class="subTitle" title="預算及決算">
+                                            預算及決算
+                                            <small class="text-muted">Budget</small>
+                                        </h3>
+                                    </div>
+
+                                    <!-- Document List Table -->
+                                    <div class="infoList">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th scope="col">名稱</th>
+                                                        <th scope="col">發布日期</th>
+                                                        <th scope="col">附件</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var file in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>@file.DocumentName.Substring(0, file.DocumentName.LastIndexOf('.'))</td>
+                                                            <td>@file.UploadTime.ToString("yyyy/MM/dd")</td>
+                                                            <td>
+                                                                <a href="~/storage/media/attachments/@file.DocumentName" target="_blank" title="@file.DocumentName">
+                                                                    <span class="badge bg-primary">@file.DocumentType</span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pagination -->
+                                    <div class="Pagination mt-4">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination justify-content-center">
+                                                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                                {
+                                                    <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                        <a class="page-link" href="@Url.Action("budget", "Tiss", new { page = i })">@i</a>
+                                                    </li>
+                                                }
+                                                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                                    <a class="page-link" href="@Url.Action("budget", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                                    <a class="page-link" href="@Url.Action("budget", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                    <!-- Upload Document Section (Only for logged-in users) -->
+                                    @if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
+                                    {
+                                        <div class="mt-5">
+                                            @using (Html.BeginForm("UploadBudgetDocument", "Tiss", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                                <div class="mb-3 row">
+                                                    <label for="file" class="col-md-2 col-form-label" title="選擇檔案">選擇檔案</label>
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="file" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-10 offset-md-2">
+                                                        <input type="submit" value="上傳檔案" class="btn btn-success" />
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+$(document).ready(function () {
+    var isLoggedIn = '@Session["LoggedIn"]' == 'True';
+
+if (isLoggedIn) {
+    $('#logoutBtn').show(); //顯示登出按鈕
+} else {
+    $('#loginBtn').show(); //顯示登入按鈕
+    }
+        loadContent(); //加載已儲存的內容
+});
+
+        //顯示當前被選擇的子目錄
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentUrl = window.location.pathname;
+            var menuLinks = document.querySelectorAll('.MenuLink');
+
+            menuLinks.forEach(function (link) {
+
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
