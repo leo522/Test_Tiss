@@ -1,0 +1,172 @@
+﻿.SectionNews {
+    padding: 120px 0;
+}
+
+.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* 0.5);
+    padding-left: calc(var(--bs-gutter-x)* 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+element.style {
+    margin-left: -27.5px;
+    margin-right: -27.5px;
+    padding-right: 27.5px;
+    padding-left: 27.5px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/*標題文字*/
+.SectionNews .SectionHeader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+.SectionNews .SectionHeader .Title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 50px;
+}
+
+.SectionNews .SectionHeader .Title .SectionTitle {
+    line-height: .7;
+    font-size: 3.75rem;
+    color: #004d9f;
+    font-weight: 200;
+}
+/*標題文字*/
+
+/*左側大圖片項目*/
+.NewsItemBox.headline .NewsItemImg {
+    height: 396px;
+}
+
+.NewsItemBox .NewsItemImg {
+    position: relative;
+    height: 204px;
+    overflow: hidden;
+}
+
+.NewsItemBox .NewsItemImg, .SectionAbout .AboutImg img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+    .NewsItemBox .NewsItemImg img {
+        width: 100%;
+        height: 100%;
+    }
+
+body img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 50% 50%;
+    object-position: 50% 50%;
+}
+/*左側大圖片項目*/
+
+/*左側大圖片hashtag*/
+.NewsItemBox .NewsItemImg .tag {
+    background-color: #202733;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px 22px;
+    font-size: 1rem;
+    color: #fff;
+    z-index: 3;
+    border-radius: 10px 0 10px 0;
+}
+
+.badge {
+    --el-tag-font-size: 12px;
+    --el-tag-border-radius: 4px;
+    --el-tag-border-radius-rounded: 9999px;
+    --el-tag-bg-color: var(--el-color-primary-light-9);
+    --el-tag-border-color: var(--el-color-primary-light-8);
+    --el-tag-hover-color: var(--el-color-primary);
+    --el-tag-text-color: var(--el-color-primary);
+    background-color: var(--el-tag-bg-color);
+    border-color: var(--el-tag-border-color);
+    color: var(--el-tag-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 24px;
+    padding: 0 9px;
+    font-size: var(--el-tag-font-size);
+    line-height: 1;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--el-tag-border-radius);
+    box-sizing: border-box;
+    white-space: nowrap;
+    --el-icon-size: 14px;
+}
+
+.NewsItemBox .NewsItemInfo .badge {
+    font-size: inherit;
+    margin-right: 20px;
+    color: #004d9f;
+    border-color: #004d9f;
+}
+
+.badge.is-round {
+    border-radius: var(--el-tag-border-radius-rounded);
+}
+
+.badge.badge-primary {
+    border-color: var(--el-color-primary-light-5);
+    background-color: var(--el-fill-color-blank);
+    color: var(--el-tag-hover-color);
+}
+
+.NewsItemBox .NewsItemImg .Mask {
+    display: none;
+}
+/*左側大圖片hashtag*/
+
+/*左側大圖片標題*/
+.NewsItemBox.headline .NewsItemTitle {
+    font-size: 2rem;
+}
+.NewsItemBox.headline .NewsItemContent {
+    display: block;
+    color: #717171;
+    font-size: 1rem;
+    margin-bottom: 14px;
+}
+.NewsItemBox .NewsItemInfo {
+    font-size: .875rem;
+    color: #717171;
+}
+/*左側大圖片標題*/

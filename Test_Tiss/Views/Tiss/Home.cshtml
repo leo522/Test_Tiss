@@ -10,6 +10,10 @@
     @*<link href="~/site/css/socialStyle.css" rel="stylesheet" />*@
     @*<script src="~/site/js/HomeFun.js"></script>*@
     <link href="~/site/css/bbb.css" rel="stylesheet" />
+    <link href="~/site/css/LinksStyle.css" rel="stylesheet" />
+    <link href="~/site/css/VideoStyle.css" rel="stylesheet" />
+    <link href="~/site/css/HomeContent.css" rel="stylesheet" />
+    <link href="~/site/css/HomeBanner.css" rel="stylesheet" />
 </head>
 <body>
     <div class="layout">
@@ -21,10 +25,10 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="/site/img/about_banner_1.cb027849.jpg" class="d-block w-100" alt="Taiwan Institute of Sports Science">
-                                <div class="carousel-caption d-none d-md-block">
+                                @*<div class="carousel-caption d-none d-md-block">
                                     <h1 class="main-title">國家運動科學中心</h1>
                                     <p class="content">推動運動科學研究及應用<br>提升國際競技水準與運動產業競爭力</p>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="carousel-item">
                                 <div class="d-flex justify-content-center">
@@ -56,7 +60,7 @@
 
                 <div id="news" class="SectionNews mt-5">
                     <div class="container">
-                        <div class="row">
+                        <div class="row" style="margin-left: -27.5px; margin-right: -27.5px;">
                             <div class="col-lg-6 d-none d-lg-block">
                                 <div class="SectionHeader">
                                     <div class="Title">
@@ -68,7 +72,7 @@
                                 </div>
                                 <a id="latestArticleLink" href="@Url.Action("ViewArticle", "Tiss", new { encryptedUrl = Model.LatestArticle.EncryptedUrl })" class="">
                                     <div class="NewsItemBox headline">
-                                        <div class="NewsItemImg">
+                                        <div class="NewsItemImg" >
                                             @if (Model.LatestArticle.ImageContent != null)
                                             {
                                                 string base64Image = Convert.ToBase64String(Model.LatestArticle.ImageContent);
@@ -82,7 +86,7 @@
                                             <span>@Model.LatestArticle.BodyContent</span>
                                         </div>
                                         <div class="NewsItemInfo">
-                                            <span class="badge badge-primary">@Model.LatestArticle.Hashtags</span>
+                                            <span class="badge badge-primary is-round">@Model.LatestArticle.Hashtags</span>
                                             <span>@Model.LatestArticle.PublishedDate.ToString("yyyy-MM-dd")</span>
                                         </div>
                                     </div>
@@ -149,7 +153,7 @@
                     </div>
                 </div>
 
-                <div id="video" class="SectionVideo mt-5">
+                <div id="video" class="SectionVideo">
                     <div class="container">
                         <div class="SectionHeader">
                             <div class="Title">
@@ -163,6 +167,12 @@
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="carousel slide" id="videoCarousel" data-ride="carousel">
+                                        <button aria-disabled="false" type="button" class="el-button is-circle ArrowBtn Left" aria-label="Previous">
+                                            &lt;
+                                        </button>
+                                        <button aria-disabled="false" type="button" class="el-button is-circle ArrowBtn Right" aria-label="Next">
+                                            &gt;
+                                        </button>
                                         <div class="carousel-inner">
                                             @for (var i = 0; i < Model.Videos.Count; i++)
                                             {
@@ -175,7 +185,9 @@
                                                             <span class="Title">@Model.Videos[i].Title</span>
                                                             <span class="Content">@Model.Videos[i].BodyContent</span>
                                                             <div class="Info">
-                                                                <span class="badge badge-secondary">人物專訪</span>
+                                                                <span class="el-tag el-tag--plain is-round">
+                                                                    <span class="el-tag__content" style="-webkit-line-clamp: 2;" title="人物專訪">人物專訪</span>
+                                                                </span>
                                                                 <span>@Model.Videos[i].PublishedDate</span>
                                                             </div>
                                                         </div>
@@ -183,14 +195,6 @@
                                                 </div>
                                             }
                                         </div>
-                                        <a class="carousel-control-prev" href="#videoCarousel" role="button" data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
@@ -205,6 +209,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="BottomRow mt-4 text-center">
                             <a href="/Tiss/video" class="btn btn-outline-light">所有影音</a>
                         </div>
@@ -224,72 +230,37 @@
                         <div class="SectionLinksList">
                             <div class="row">
                                 <div class="col-6 col-md-4 mb-3">
-                                    <a href="https://www.sa.gov.tw/">
-                                        <img src="/site/img/links_logo.b6ae967e.svg" alt="教育部體育署" class="img-fluid">
-                                    </a>
+                                        <img src="/site/img/links_logo.b6ae967e.svg" alt="教育部體育署" onclick="window.open('https://www.sa.gov.tw/')" title="教育部體育署"/>
+
                                 </div>
+
                                 <div class="col-6 col-md-4 mb-3">
-                                    <a href="https://www.facebook.com/p/%E5%9C%8B%E5%AE%B6%E9%81%8B%E5%8B%95%E7%A7%91%E5%AD%B8%E4%B8%AD%E5%BF%83Taiwan-Institute-of-Sports-Science-61553673834147/?locale=zh_TW">
-                                        <img src="~/site/img/facebook圖片.jpg" alt="國家運動科學中心FB" class="img-fluid">
-                                    </a>
+                                        <img src="~/Img/facebook2.png" alt="國家運動科學中心FB" onclick="window.open('https://www.facebook.com/p/%E5%9C%8B%E5%AE%B6%E9%81%8B%E5%8B%95%E7%A7%91%E5%AD%B8%E4%B8%AD%E5%BF%83Taiwan-Institute-of-Sports-Science-61553673834147/?locale=zh_TW')" title="國家運動科學中心FB"/>
                                 </div>
+
                                 <div class="col-6 col-md-4 mb-3">
-                                    <a href="https://www.instagram.com/tiss_2024/">
-                                        <img src="~/site/img/IG圖片.png" alt="國家運動科學中心IG" class="img-fluid">
-                                    </a>
+                                        <img src="~/Img/IG圖片.png" alt="國家運動科學中心IG" onclick="window.open('https://www.instagram.com/tiss_2024/')"/>
+
                                 </div>
+
                                 <div class="col-6 col-md-4 mb-3">
-                                    <a href="https://www.youtube.com/%40TISS_2024">
-                                        <img src="~/site/img/YT圖片.jpg" alt="國家運動科學中心YouTube" class="img-fluid">
-                                    </a>
+                                        <img src="~/Img/youtube2.png" alt="國家運動科學中心YouTube" onclick="window.open('https://www.youtube.com/%40TISS_2024')" title="國家運動科學中心YouTube"/>
+
                                 </div>
+
                                 <div class="col-6 col-md-4 mb-3">
                                     <a href="https://www.sportscience.com.tw/">
-                                        <img src="~/site/img/運動科學網.jpg" alt="運動科學網站" class="img-fluid">
+                                        <img src="~/Img/運動科學網站.jpg" onclick="window.open('https://www.sportscience.com.tw/')" alt="運動科學網站" title="運動科學網站"/>
                                     </a>
                                 </div>
-                                <div class="col-6 col-md-4 mb-3">
-                                    <a href="http://www.epsport.net/epsport/ep/index.asp">
-                                        <img src="~/site/img/運動生理學網站圖片.jpg" alt="運動生理學網站" class="img-fluid">
-                                    </a>
+
+                                <div class="col-6 col-md-4 mb-3">                
+                                        <img src="~/Img/運動生理學網站.jpg" alt="運動生理學網站" onclick="window.open('http://www.epsport.net/epsport/ep/index.asp')" title="運動生理學網站"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                @*<footer class="footer mt-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <p>地址：813高雄市左營區軍校路199號</p>
-                                <p>聯絡電話：07-586-1193</p>
-                                <p>服務時間：週一至週五08:30~17:30</p>
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="list-unstyled">
-                                    <li><a href="/Tiss/Home">首頁</a></li>
-                                    <li><a href="#">中心介紹</a></li>
-                                    <li><a href="#">最新消息</a></li>
-                                    <li><a href="#">影音專區</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <ul class="list-unstyled">
-                                    <li><a href="#">科普專欄</a></li>
-                                    <li><a href="#">公開資訊</a></li>
-                                    <li><a href="#">贊助專區</a></li>
-                                    <li><a href="#">服務信箱</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-md-12 text-center">
-                                <p>Copyright © 2024 國家運動科學中心. All Rights Reserved.</p>
-                            </div>
-                        </div>
-                    </div>
-                </footer>*@
             </div>
         </div>
     </div>
@@ -340,44 +311,44 @@ $('.category-button').click(function () {
 });
 
 // 影片左右跳轉
-document.addEventListener('DOMContentLoaded', function () {
-    var videoItems = document.querySelectorAll('.carousel-video-column .video-item');
-    var articleItems = document.querySelectorAll('.carousel-article-column .article-item');
-    var currentIndex = 0;
+        document.addEventListener('DOMContentLoaded', function () {
+            var videoItems = document.querySelectorAll('.video-item');
+            var articleItems = document.querySelectorAll('.carousel-item');
+            var currentIndex = 0;
 
-    function showItem(index) {
-        videoItems.forEach(item => item.style.display = 'none');
-        articleItems.forEach(item => item.style.display = 'none');
+            function showItem(index) {
+                videoItems.forEach(item => item.style.display = 'none');
+                articleItems.forEach(item => item.style.display = 'none');
 
-        if (videoItems[index]) videoItems[index].style.display = 'block';
-        if (articleItems[index]) articleItems[index].style.display = 'block';
-    }
+                if (videoItems[index]) videoItems[index].style.display = 'block';
+                if (articleItems[index]) articleItems[index].style.display = 'block';
+            }
 
-    function showPrevious() {
-        currentIndex = (currentIndex - 1 + videoItems.length) % videoItems.length;
-        showItem(currentIndex);
-    }
+            function showPrevious() {
+                currentIndex = (currentIndex - 1 + videoItems.length) % videoItems.length;
+                showItem(currentIndex);
+            }
 
-    function showNext() {
-        currentIndex = (currentIndex + 1) % videoItems.length;
-        showItem(currentIndex);
-    }
+            function showNext() {
+                currentIndex = (currentIndex + 1) % videoItems.length;
+                showItem(currentIndex);
+            }
 
-    // 初始顯示第一個影片
-    showItem(currentIndex);
+            // 初始顯示第一個影片
+            showItem(currentIndex);
 
-    // 取得按鍵並添加事件處理程序
-    var leftButton = document.querySelector('.ArrowBtn.Left');
-    var rightButton = document.querySelector('.ArrowBtn.Right');
+            // 取得按鍵並添加事件處理程序
+            var leftButton = document.querySelector('.ArrowBtn.Left');
+            var rightButton = document.querySelector('.ArrowBtn.Right');
 
-    if (leftButton) {
-        leftButton.addEventListener('click', showPrevious);
-    }
+            if (leftButton) {
+                leftButton.addEventListener('click', showPrevious);
+            }
 
-    if (rightButton) {
-        rightButton.addEventListener('click', showNext);
-    }
-});
+            if (rightButton) {
+                rightButton.addEventListener('click', showNext);
+            }
+        });
     </script>
 </body>
 </html>

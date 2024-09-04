@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Test_Tiss.Models.ArticleContentModel>
-@{
+﻿@{
     Layout = "~/Views/Shared/_TissMaster.cshtml";
 }
 <!DOCTYPE html>
@@ -7,153 +6,203 @@
 <head>
     <link href="~/site/css/MenuLinkStyle.css" rel="stylesheet" />
     <link href="~/site/css/ViewArticle.css" rel="stylesheet" />
+    <link href="~/site/css/PopularScienceStyle.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-fluid px-0 mt-header">
         <div class="BasePageLayout">
-            <!-- Banner Section -->
-            <div class="BasePageBanner position-relative">
-                <div class="Mask position-absolute w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
-                <img class="img-fluid d-none d-lg-block w-100" src="/site/img/banner_research.25875290.jpg" alt="科普專欄封面圖片" title="科普專欄封面圖片">
-                <div class="container position-absolute top-50 start-50 translate-middle text-center text-white">
-                    <h1 class="display-4">Popular Science</h1>
-                    <p class="lead">
-                        <img src="/site/img/title_icon_white.5e98ec4e.svg" alt="科普專欄" title="科普專欄">
-                        科普專欄
-                    </p>
-                </div>
+            <div class="BasePageBanner">
+                <div class="Mask"></div>
+                <img class="PageBannerItemBg img-fluid d-none d-lg-block" src="/site/img/banner_research.25875290.jpg" alt="科普專欄封面圖片">
             </div>
-
-            <!-- Main Content Section -->
-            <section class="row">
-                <!-- Sidebar Navigation -->
-                <aside class="col-lg-3 col-md-4 col-12 bg-light p-4">
-                    <!-- Breadcrumb for smaller screens -->
-                    <div class="d-lg-none mb-4">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">科普專欄</li>
-                            </ol>
-                        </nav>
+            <section class="el-container">
+                <aside class="el-aside col-lg-3 mb-4">
+                    <nav class="BaseBreadcrumb d-block d-lg-none">
+                        <div class="container">
+                            <div class="Title">
+                                <div class="BannerTitle" title="Popular Science">
+                                    Popular Science
+                                </div>
+                                <div class="BannerSubTitle">
+                                    <img class="icon" src="/site/img/title_icon_white.5e98ec4e.svg" alt="科普專欄" title="科普專欄">科普專欄
+                                </div>
+                                <!-- Breadcrumb navigation -->
+                                <div class="breadcrumb-container d-block d-lg-none">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">科普專欄</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="content">
+                        <h4 class="Title mb-4" title="科普專欄">科普專欄</h4>
+                        <ul class="Menu list-unstyled">
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/research" title="全部文章">全部文章</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/sportMedicine" title="運動醫學">運動醫學</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/sportTech" title="運動科技">運動科技</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/sportScience" title="運動科學">運動科學</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/sportsPhysiology" title="運動生理">運動生理</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/sportsPsychology" title="運動心理">運動心理</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/physicalTraining" title="體能訓練">體能訓練</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/sportsNutrition" title="運動營養">運動營養</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/childrenScience" title="兒少科普">兒少科普</a></li>
+                            <li><a class="MenuLink d-block text-decoration-none mb-2" href="/Tiss/SciencePosterDownLoad" title="科普海報下載專區">科普海報下載專區</a></li>
+                        </ul>
                     </div>
-
-                    <!-- Sidebar Menu -->
-                    <h5 class="mb-3">科普專欄</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2">
-                            <a class="nav-link active" href="/Tiss/research">全部文章</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/sportMedicine">運動醫學</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/sportTech">運動科技</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/sportScience">運動科學</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/sportsPhysiology">運動生理</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/sportsPsychology">運動心理</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/physicalTraining">體能訓練</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/sportsNutrition">運動營養</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/childrenScience">兒少科普</a>
-                        </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="/Tiss/SciencePosterDownLoad">科普海報下載專區</a>
-                        </li>
-                        @if (Session["LoggedIn"] != null && (bool)Session["LoggedIn"])
-                        {
-                            <li class="nav-item mb-2">
-                                <a class="nav-link text-warning" href="/Tiss/ArticleCreate">新增文章</a>
-                            </li>
-                        }
-                    </ul>
                 </aside>
 
-                <!-- Main Article Content -->
-                <main class="col-lg-9 col-md-8 col-12 bg-white p-4">
-                    <!-- Breadcrumb for larger screens -->
-                    <div class="d-none d-lg-block mb-4">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">科普專欄</li>
-                            </ol>
-                        </nav>
-                    </div>
-
-                    <!-- Articles List -->
-                    <div class="container">
-                        <div class="row">
-                            @foreach (var article in Model)
-                            {
-                                <div class="col-md-4 mb-4">
-                                    <a href="@Url.Action("ViewArticle", "Tiss", new { encryptedUrl = article.EncryptedUrl })" class="text-decoration-none">
-                                        <div class="card h-100 shadow-sm">
-                                            <div class="position-relative">
-                                                @if (article.ImageContent != null)
-                                                {
-                                                    string base64Image = Convert.ToBase64String(article.ImageContent);
-                                                    <img src="data:image/png;base64,@base64Image" class="card-img-top" alt="圖片" />
-                                                }
-                                                <div class="position-absolute top-0 start-0 p-2 bg-dark text-white">@article.ContentType</div>
-                                                <div class="position-absolute bottom-0 start-0 p-2 bg-secondary text-white">閱讀更多</div>
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title">@article.Title</h5>
-                                                <p class="card-text">@article.BodyContent</p>
-                                            </div>
-                                            <div class="card-footer d-flex justify-content-between">
-                                                <span class="badge bg-primary">@article.Hashtags</span>
-                                                <small class="text-muted">@article.FormattedCreateDate</small>
-                                            </div>
-                                        </div>
-                                    </a>
+                <!-- Main Content Area -->
+                <main class="el-main col-lg-9 bg-white">
+                    <div class="MainContainer">
+                        <!-- Breadcrumb for both larger and smaller screens -->
+                        <div class="BaseBreadcrumb">
+                            <div class="container">
+                                <div class="breadcrumb-container d-none d-lg-block mb-4">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="/Tiss/Home">首頁</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">科普專欄</li>
+                                    </ol>
                                 </div>
-                            }
-                        </div>
-                    </div>
 
-                    <!-- Pagination -->
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
-                                <a class="page-link" href="@Url.Action("sportScience", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
-                            {
-                                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                                    <a class="page-link" href="@Url.Action("sportScience", "Tiss", new { page = i })">@i</a>
-                                </li>
-                            }
-                            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
-                                <a class="page-link" href="@Url.Action("sportScience", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                                <!-- Breadcrumb for smaller screens -->
+                                <div class="breadcrumb-container d-block d-lg-none">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="/Tiss/Home">首頁</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">科普專欄</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Articles Section -->
+                        <div class="MainContainer">
+                            <div class="NewsVideoList">
+                                <div class="container">
+                                    <div class="row">
+                                        @foreach (var article in Model)
+                                        {
+                                            <div class="col-md-4 mb-4">
+                                                <a href="@Url.Action("ViewArticle", "Tiss", new { encryptedUrl = article.EncryptedUrl })" class="">
+                                                    <div class="NewsItemBox">
+                                                        <div class="NewsItemImg">
+                                                            @if (article.ImageContent != null)
+                                                            {
+                                                                string base64Image = Convert.ToBase64String(article.ImageContent);
+                                                                <img src="data:image/png;base64,@base64Image" alt="圖片" />
+                                                            }
+                                                            <div class="tag">@article.ContentType</div>
+                                                            <div class="Mask" title="閱讀更多">閱讀更多</div>
+                                                        </div>
+                                                        <span class="el-text is-line-clamp NewsItemTitle">@article.Title</span>
+                                                        <div class="NewsItemContent">
+                                                            <span class="el-text is-line-clamp">@article.BodyContent</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tag-date-container">
+                                                        <div class="el-tag el-tag--plain is-round">
+                                                            <div class="el-tag__content">@article.Hashtags</div>
+                                                        </div>
+                                                        <div class="date-tag">@article.FormattedCreateDate</div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Pagination">
+                                <div class="container">
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-center">
+                                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                            {
+                                                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                    <a class="page-link" href="@Url.Action("research", "Tiss", new { page = i })">@i</a>
+                                                </li>
+                                            }
+                                            <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                                <a class="page-link" href="@Url.Action("research", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                                <a class="page-link" href="@Url.Action("research", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="NewsVideoList container">
+                                <div class="row">
+                                    @foreach (var article in Model)
+                                    {
+                                        <div class="col-md-4 mb-4">
+                                            <a href="@Url.Action("ViewArticle", "Tiss", new { encryptedUrl = article.EncryptedUrl })" class="text-decoration-none">
+                                                <div class="card h-100 shadow-sm">
+                                                    <div class="NewsItemImg position-relative">
+                                                        @if (article.ImageContent != null)
+                                                        {
+                                                            string base64Image = Convert.ToBase64String(article.ImageContent);
+                                                            <img src="data:image/png;base64,@base64Image" class="card-img-top" alt="圖片" />
+                                                        }
+                                                        <span class="badge bg-primary position-absolute top-0 start-0 m-2">@article.ContentType</span>
+                                                        <div class="Mask position-absolute w-100 h-100 top-0 start-0 d-flex align-items-center justify-content-center text-white" title="閱讀更多">閱讀更多</div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title el-text is-line-clamp NewsItemTitle">@article.Title</h5>
+                                                        <p class="card-text el-text is-line-clamp NewsItemContent">@article.BodyContent</p>
+                                                    </div>
+                                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                                        <small class="text-muted">@article.Hashtags</small>
+                                                        <small class="text-muted">@article.FormattedCreateDate</small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>*@
+
+                        <!-- Pagination Section -->
+                        @*<div class="Pagination container mt-4">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                                            <a class="page-link" href="@Url.Action("research", "Tiss", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                        {
+                                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                <a class="page-link" href="@Url.Action("research", "Tiss", new { page = i })">@i</a>
+                                            </li>
+                                        }
+                                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                                            <a class="page-link" href="@Url.Action("research", "Tiss", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>*@
+                    </div>
                 </main>
+
             </section>
         </div>
     </div>
 
 
     <script>
-        //登出按鈕顯示功能
-$(document).ready(function () {
+        $(document).ready(function () {
     var isLoggedIn = '@Session["LoggedIn"]' == 'True';
 
 if (isLoggedIn) {
@@ -163,16 +212,6 @@ if (isLoggedIn) {
     }
         loadContent(); //加載已儲存的內容
 });
-        document.addEventListener('DOMContentLoaded', function () {
-            var currentUrl = window.location.pathname;
-            var menuLinks = document.querySelectorAll('.MenuLink');
-
-            menuLinks.forEach(function (link) {
-                if (link.getAttribute('href') === currentUrl) {
-                    link.classList.add('active');
-                }
-            });
-        });
         //顯示當前選擇的子項目
         document.addEventListener('DOMContentLoaded', function () {
             var currentUrl = window.location.pathname;

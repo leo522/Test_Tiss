@@ -1,0 +1,64 @@
+﻿/*常用連結*/
+.SectionLinks .SectionHeader .Title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 50px;
+}
+
+    .SectionLinks .SectionHeader .Title .SectionTitle {
+        font-size: 3.75rem;
+        color: #004d9f;
+        font-weight: 200;
+    }
+
+    .SectionLinks .SectionHeader .Title .SectionSubTitle {
+        font-size: 1rem;
+        margin-left: 20px;
+    }
+
+/*常用連結*/
+
+/*影片專區背景色*/
+.SectionVideo {
+    background: url(/site/img/bg_white.9bd4594e.svg) no-repeat 0 100% / contain, #202733;
+    padding: 120px 0;
+}
+/*影片專區背景色*/
+
+/*左右箭頭按鈕*/
+.el-button.is-circle {
+    width: 32px;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+    .SectionVideo .VideoCarousel .ArrowBtn:hover {
+        color: #fff;
+        background-color: #004d9f;
+    }
+
+    .SectionVideo .VideoCarousel .ArrowBtn.Left {
+    -webkit-transform: translate(-100%, -100%);
+    transform: translate(-100%, -100%);
+    left: -30px;
+}
+
+    .SectionVideo .VideoCarousel .ArrowBtn.Right {
+        -webkit-transform: translate(100%, -100%);
+        transform: translate(100%, -100%);
+        right: -600px;
+    }
+
+    .SectionVideo .VideoCarousel .ArrowBtn {
+        border: 0;
+        width: 56px;
+        height: 56px;
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+    }
+/*左右箭頭按鈕*/

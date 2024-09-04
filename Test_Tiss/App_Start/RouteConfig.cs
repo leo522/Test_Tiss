@@ -16,7 +16,7 @@ namespace Test_Tiss
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Tiss", action = "Home", id = UrlParameter.Optional }
             );
         }
     }

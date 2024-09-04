@@ -1,0 +1,161 @@
+﻿/*標題文字*/
+.SectionVideo .SectionHeader .Title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin-bottom: 50px;
+}
+    .SectionVideo .SectionHeader .Title .SectionTitle {
+        line-height: .7;
+        font-size: 3.75rem;
+        color: #fff;
+        font-weight: 200;
+    }
+
+    .SectionVideo .SectionHeader .Title .SectionSubTitle {
+        font-size: 1rem;
+        margin-left: 20px;
+        color: #fff;
+    }
+/*標題文字*/
+
+/*按鈕*/
+.SectionVideo .BottomRow {
+    margin-top: 50px;
+}
+/*按鈕*/
+
+/*影片文字和背景*/
+element.style {
+    padding-right: 12px;
+    padding-left: 12px;
+    -webkit-line-clamp: 2;
+}
+.SectionVideo .VideoCarousel .VideoCarouselContent {
+    position: relative;
+    border-radius: 10px;
+    background-color: #fff;
+    height: 390px;
+    overflow: hidden;
+}
+
+.SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox {
+        position: absolute;
+        padding: 38px 167px 38px 60px;
+        top: 0;
+        left: 0;
+    }
+
+.SectionVideo .VideoCarousel .VideoCarouselContent:hover {
+    background-color: #004d9f;
+}
+
+/*中心成果文字*/
+    .SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox .Tag {
+        margin-bottom: 20px;
+    }
+
+    .SectionVideo .VideoCarousel .VideoCarouselContent:hover .VideoCarouselContentBox .Tag span {
+        background-color: #fff;
+        color: #004d9f;
+    }
+    .SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox .Tag span {
+        font-size: 1rem;
+        padding: 7px 25px;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #202733;
+    }
+
+    .SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox {
+        position: absolute;
+        padding: 38px 167px 38px 60px;
+        top: 0;
+        left: 0;
+    }
+
+    .SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox .Title {
+        margin-bottom: 12px;
+        color: #151515;
+        font-size: 2rem;
+    }
+.el-text.is-line-clamp {
+    display: -webkit-inline-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.el-text {
+    --el-text-font-size: var(--el-font-size-base);
+    --el-text-color: var(--el-text-color-regular);
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    font-size: var(--el-text-font-size);
+    color: var(--el-text-color);
+    word-break: break-all;
+}
+/*中心成果文字*/
+
+/*HashTag*/
+.SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox .Info {
+    font-size: .875rem;
+    color: #717171;
+}
+
+.SectionVideo .VideoCarousel .VideoCarouselContent:hover .VideoCarouselContentBox .Info .el-tag {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.SectionVideo .VideoCarousel .VideoCarouselContent .VideoCarouselContentBox .Info .el-tag {
+    font-size: inherit;
+    margin-right: 20px;
+    color: #004d9f;
+    border-color: #004d9f;
+}
+
+.el-tag.is-round {
+    border-radius: var(--el-tag-border-radius-rounded);
+}
+
+.el-tag--plain {
+    --el-tag-border-color: var(--el-color-primary-light-5);
+    --el-tag-hover-color: var(--el-color-primary);
+    --el-tag-bg-color: var(--el-fill-color-blank);
+}
+
+.el-tag {
+    --el-tag-font-size: 12px;
+    --el-tag-border-radius: 4px;
+    --el-tag-border-radius-rounded: 9999px;
+    --el-tag-bg-color: var(--el-color-primary-light-9);
+    --el-tag-border-color: var(--el-color-primary-light-8);
+    --el-tag-hover-color: var(--el-color-primary);
+    --el-tag-text-color: var(--el-color-primary);
+    background-color: var(--el-tag-bg-color);
+    border-color: var(--el-tag-border-color);
+    color: var(--el-tag-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 24px;
+    padding: 0 9px;
+    font-size: var(--el-tag-font-size);
+    line-height: 1;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--el-tag-border-radius);
+    box-sizing: border-box;
+    white-space: nowrap;
+    --el-icon-size: 14px;
+}
+/*HashTag*/
+
+/*影片連結內容*/
+
+/*影片連結內容*/
